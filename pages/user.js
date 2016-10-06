@@ -11,7 +11,7 @@ function user (state, prev, send) {
   const progress = state.api.pull_requests.length > 4 ? 4 : state.api.pull_requests.length
 
   return html`
-    <div class="sans-serif mt3 ph2 ph0-l ${style}" onload=${(e) => send('api:request', state.params.user)}>
+    <div class="sans-serif mt3 ph2 ph0-l ${style}">
       <div class="mw7 center">
         <h1 class="f4 tc ttu dark-gray">Hacktober tracker</h1>
         ${search(state, prev, send, state.params.user)}

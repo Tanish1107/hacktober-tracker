@@ -2,12 +2,12 @@
 #!/usr/bin/env bash
 
 # Clean distribution directory.
-rm -rf dist && mkdir dist && mkdir dist/js
+rm dist/bundle.js
 
 # Bundle the main js file.
 
 # add -d switch for sourcemapping and debugging production.
-NODE_ENV=production browserify -e ./client.js -o dist/js/main.js \
+NODE_ENV=production browserify -e ./client.js -o ./dist/bundle.js \
   -t envify \
   -t sheetify/transform \
   -g yo-yoify \

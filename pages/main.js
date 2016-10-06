@@ -3,6 +3,7 @@
 const html = require('choo/html')
 const search = require('../elements/search')
 const style = require('../assets/css')
+const user = require('./user')
 
 const main = (state, prev, send) => {
   return html`

@@ -5,10 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build:prod": "scripts/build-prod.sh",
-    "start": "browserify ./client.js -o ./dist/js/main.js -t sheetify/transform -g es2040",
-    "start:watch": "watch 'npm start' .",
-    "browsersync": "browser-sync start --server --files 'client.js'",
-    "concurrently": "concurrently 'npm run start:watch' 'npm run browsersync'",
+    "deploy": "npm run build:prod && gh-pages -d dist",
+    "start": "budo ./client.js --live --pushState -- -t sheetify/transform -g es2040",
     "lint": "standard --verbose | snazzy",
     "test": "npm run lint"
   },
@@ -19,16 +17,15 @@
     "tachyons": "^4.5.3"
   },
   "devDependencies": {
-    "browser-sync": "^2.17.0",
     "browserify": "^13.0.1",
-    "concurrently": "^3.1.0",
+    "budo": "^9.2.1",
     "envify": "^3.4.1",
     "es2040": "1.2.2",
+    "gh-pages": "^0.11.0",
     "snazzy": "^4.0.0",
     "standard": "^7.1.2",
     "uglifyify": "^3.0.2",
     "unassertify": "^2.0.3",
-    "watch": "^1.0.1",
     "yo-yoify": "^3.3.0"
   },
   "standard": {
