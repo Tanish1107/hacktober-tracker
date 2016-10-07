@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build:prod": "scripts/build-prod.sh",
-    "deploy": "npm run build:prod && gh-pages -d dist",
+    "deploy": "npm run build:prod && surge ./dist",
     "start": "budo ./client.js --live --pushstate -- -t sheetify/transform -g es2040",
     "lint": "standard --verbose | snazzy",
     "test": "npm run lint"
