@@ -159,3 +159,4 @@ npm-debug.log
 .idea
 .history
 *.swp
+dist/bundle.js
