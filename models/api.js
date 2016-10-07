@@ -11,7 +11,8 @@ const api = {
   reducers: {
     /* synchronous operations that modify state. Triggered by actions. Signature of (data, state). */
     // update: (data, state) => ({ title: data.value })
-    updateState: (data, state) => ({ pull_requests: data })
+    updateState: (data, state) => ({ pull_requests: data, error: null }),
+    setError: (data, state) => ({ pull_requests: [], error: data })
   },
   effects: {
     // asynchronous operations that don't modify state directly.
@@ -26,15 +27,20 @@ const api = {
 }
 
 const request = (name, send, state) => {
+  const errMessage = "Something went wrong, please try again"
   const options = {
     q: 'created:2016-09-30T00:00:00-12:00..2016-10-31T23:59:59-12:00+type:pr+is:public+author:' + name
   }
 
   http(`https://api.github.com/search/issues?q=${options.q}`, { json: true }, (err, res, body) => {
-    if (err) return err
+    if (err) return send('api:setError', errMessage, (err) => {
+      if (err) return err
+    })
 
     if (res.statusCode !== 200 || !body) {
-      return console.log('Something went wrong :(') //TODO send to proper error handling
+      return send('api:setError', errMessage, (err) => {
+        if (err) return err
+      })
     }
 
     console.log(body)

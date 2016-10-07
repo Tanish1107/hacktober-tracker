@@ -16,6 +16,7 @@ function user (state, prev, send) {
         <h1 class="f4 tc ttu dark-gray">Hacktober tracker</h1>
         ${search(state, prev, send, state.params.user)}
         ${progressBar(progress)}
+        <div class="tc f3 f2-ns mt3">${state.api.error}</div>
         ${state.api.pull_requests.map((e) => {
           console.log(e)
           return html`
