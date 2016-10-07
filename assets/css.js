@@ -13,6 +13,10 @@ const style = sf`
   .hover-bg-hacktober-light:focus {
     background-color: #f4f1ec;
   }
+
+  .b--hacktober-light {
+    border-color: #f4f1ec;
+  }
 `
 
 module.exports = style
