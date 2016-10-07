@@ -6,7 +6,7 @@
   "scripts": {
     "build:prod": "scripts/build-prod.sh",
     "deploy": "npm run build:prod && gh-pages -d dist",
-    "start": "budo ./client.js --live --pushState -- -t sheetify/transform -g es2040",
+    "start": "budo ./client.js --live --pushstate -- -t sheetify/transform -g es2040",
     "lint": "standard --verbose | snazzy",
     "test": "npm run lint"
   },
