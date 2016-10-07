@@ -4,7 +4,7 @@ Small tracker for your hacktober progress built with choo.
 
 ## Usage
 
-You can see it live at:
+You can see it live at: http://hacktober-tracker.simonbrix.dk/
 
 ## Dev
 
