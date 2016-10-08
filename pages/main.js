@@ -8,7 +8,7 @@ const user = require('./user')
 const main = (state, prev, send) => {
   return html`
     <main class="mw7 center ph2 ph0-l ${style}">
-      <div class="mt7">
+      <div class="mt6">
         <h1 class="f2-ns f3 tc ttu dark-gray">Hacktober tracker</h1>
         ${search(state, prev, send)}
       </div>
